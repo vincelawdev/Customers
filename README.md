@@ -3,11 +3,11 @@ Search form that queries the [Customer Server](https://github.com/vincelawdev/Cu
 
 This project was forked from [Company](https://github.com/vincelawdev/Company), which was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This app has been deployed to Heroku and it can be viewed at: [https://LATER.herokuapp.com/](https://LATER.herokuapp.com/)
+This app has been deployed to Heroku and it can be viewed at: [https://vince-customers.herokuapp.com/](https://vince-customers.herokuapp.com/)
 
 The directory structure follows a similar style to [React Boilerplate's](https://github.com/react-boilerplate/react-boilerplate/tree/master/app) directory structure.
 
-[Redux Starter Kit](https://redux-starter-kit.js.org/) was used to simplify the Redux setup process.
+[Redux Toolkit](https://redux-toolkit.js.org/) was used to simplify the Redux setup process.
 
 [React Hooks](https://reactjs.org/docs/hooks-intro.html) and [Redux Hooks](https://react-redux.js.org/next/api/hooks) were used to simplify the Redux binding code and promote the use of functional components over class components.
 
