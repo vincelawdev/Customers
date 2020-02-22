@@ -18,6 +18,11 @@ const Container = styled.main`
     padding: 10px;
     display: block;
     font-size: 32px;
+    cursor: pointer;
+  }
+
+  a.react-router-button {    
+    text-decoration: none;
   }
 `;
 

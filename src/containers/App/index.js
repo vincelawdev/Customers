@@ -1,16 +1,29 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import GlobalStyle from './global-style';
-import Container from '../../components/Container';
+import Home from '../Home';
+import Form from '../Form';
+import Results from '../Results';
 
 const App = () => (
-  <>
+  <Router>
     <GlobalStyle />
-    <Container>
-      <h1>Welcome to the Customers Search Form</h1>
-      <h2>Please click the start button to begin!</h2>
-      <button type="button">Start</button>
-    </Container>
-  </>
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/form">
+        <Form />
+      </Route>
+      <Route path="/results">
+        <Results />
+      </Route>
+    </Switch>
+  </Router>
 );
 
 export default App;
