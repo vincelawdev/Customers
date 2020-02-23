@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from "react-router-dom";
 import Container from '../../components/Container';
 import FormErrorBox from '../../components/FormErrorBox';
 import FormStatusBox from '../../components/FormStatusBox';
@@ -76,16 +77,23 @@ const Form = () => {
     if (validateFormFields()) {
       dispatch(searchCustomers(formFields));
     }
-  };
+  };  
+
+  // redirect to results page if results found
+  if (Array.isArray(searchResults) && searchResults.length > 0) {
+    return <Redirect to="/results" />
+  }
 
   return (
     <Container>
       <h1>Customers Search Form</h1>
       <h2>Please enter the customer&apos;s first name, surname and email. Mobile number is optional.</h2>
+      
       <FormStatusBox message={searchLoading ? 'Searching...' : ''} />
       <FormStatusBox message={searchError || ''} />
       <FormStatusBox message={(Array.isArray(searchResults) && searchResults.length === 0 && !searchLoading) ? 'There is no such customer.' : ''} />
       <FormErrorBox errors={formErrors} />
+      
       <form onSubmit={event => handleSubmit(event)}>
         <label htmlFor="firstName">First Name</label>
         <input id="firstName" type="text" value={firstName} onChange={event => handleChange('firstName', event.target.value)} />

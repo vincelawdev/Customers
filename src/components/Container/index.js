@@ -40,6 +40,16 @@ const Container = styled.main`
     display: block;
     font-size: 16px;
   }
+
+  table {
+    margin: 0 auto 30px auto;
+    border-collapse: collapse;
+
+    td {
+      padding: 15px;
+      border: 1px solid black;
+    }
+  }
 `;
 
 export default Container;
