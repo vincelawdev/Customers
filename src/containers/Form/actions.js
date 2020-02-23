@@ -1,7 +1,15 @@
 import axios from 'axios';
 import {
-  SEARCH_CUSTOMERS_INIT, SEARCH_CUSTOMERS_SUCCESS, SEARCH_CUSTOMERS_ERROR,
+  SET_FORM_FIELD, SEARCH_CUSTOMERS_INIT, SEARCH_CUSTOMERS_SUCCESS, SEARCH_CUSTOMERS_ERROR,
 } from './constants';
+
+export function setFormField(key, value) {
+  return {
+    type: SET_FORM_FIELD,
+    key,
+    value,
+  };
+}
 
 export function searchCustomersInit() {
   return {

@@ -1,22 +1,30 @@
 import {
-  SEARCH_CUSTOMERS_INIT, SEARCH_CUSTOMERS_SUCCESS, SEARCH_CUSTOMERS_ERROR,
+  SET_FORM_FIELD, SEARCH_CUSTOMERS_INIT, SEARCH_CUSTOMERS_SUCCESS, SEARCH_CUSTOMERS_ERROR,
 } from './constants';
 
 const initialState = {
   searchLoading: false,
   searchError: null,
   searchResults: [],
-  formErrors: [],
   formFields: {
     firstName: '',
     surname: '',
     email: '',
     mobile: '',
-  }
+  },
+  formErrors: [],
 };
 
 export default function formReducer(state = initialState, action) {
   switch (action.type) {
+  case SET_FORM_FIELD:
+    return {
+      ...state,
+      formFields: {
+        ...state.formFields,
+        [action.key]: action.value,
+      }      
+    };
   case SEARCH_CUSTOMERS_INIT:
     return {
       ...state,

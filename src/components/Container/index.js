@@ -24,6 +24,22 @@ const Container = styled.main`
   a.react-router-button {    
     text-decoration: none;
   }
+
+  label {
+    margin: 0 0 15px 0;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  input[type="text"] {
+    width: 30%;
+    margin: 0 auto 30px auto;
+    padding: 10px;
+    display: block;
+    font-size: 16px;
+  }
 `;
 
 export default Container;
