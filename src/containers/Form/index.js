@@ -1,16 +1,21 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Container from '../../components/Container';
-import ErrorBox from '../../components/ErrorBox';
-import { setFormField, setFormErrors } from './actions';
+import FormErrorBox from '../../components/FormErrorBox';
+import FormStatusBox from '../../components/FormStatusBox';
+import { setFormField, setFormErrors, searchCustomers } from './actions';
 
 const Form = () => {
-  const { firstName, surname, email, mobile, formErrors } = useSelector((state) => ({
+  const { firstName, surname, email, mobile, formFields, formErrors, searchLoading, searchError, searchResults } = useSelector((state) => ({
     firstName: state.form.formFields.firstName,
     surname: state.form.formFields.surname,
     email: state.form.formFields.email,
     mobile: state.form.formFields.mobile,
+    formFields: state.form.formFields,
     formErrors: state.form.formErrors,
+    searchLoading: state.form.searchLoading,
+    searchError: state.form.searchError,
+    searchResults: state.form.searchResults,
   }));
   const dispatch = useDispatch();
 
@@ -69,8 +74,7 @@ const Form = () => {
     event.preventDefault();
     
     if (validateFormFields()) {
-      console.log('let us submit form', formErrors);
-
+      dispatch(searchCustomers(formFields));
     }
   };
 
@@ -78,7 +82,10 @@ const Form = () => {
     <Container>
       <h1>Customers Search Form</h1>
       <h2>Please enter the customer&apos;s first name, surname and email. Mobile number is optional.</h2>
-      <ErrorBox errors={formErrors} />      
+      <FormStatusBox message={searchLoading ? 'Searching...' : ''} />
+      <FormStatusBox message={searchError || ''} />
+      <FormStatusBox message={(Array.isArray(searchResults) && searchResults.length === 0 && !searchLoading) ? 'There is no such customer.' : ''} />
+      <FormErrorBox errors={formErrors} />
       <form onSubmit={event => handleSubmit(event)}>
         <label htmlFor="firstName">First Name</label>
         <input id="firstName" type="text" value={firstName} onChange={event => handleChange('firstName', event.target.value)} />

@@ -11,6 +11,10 @@ The directory structure follows a similar style to [React Boilerplate's](https:/
 
 [React Hooks](https://reactjs.org/docs/hooks-intro.html) and [Redux Hooks](https://react-redux.js.org/next/api/hooks) were used to simplify the Redux binding code and promote the use of functional components over class components.
 
+## List of Customers
+
+* John Smith - john@gmail.com
+
 # Installation
 
 Git clone this repository and run the following command.

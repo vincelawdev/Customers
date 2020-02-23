@@ -5,7 +5,7 @@ import {
 const initialState = {
   searchLoading: false,
   searchError: null,
-  searchResults: [],
+  searchResults: null,
   formFields: {
     firstName: '',
     surname: '',

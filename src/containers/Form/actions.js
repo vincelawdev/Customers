@@ -38,11 +38,11 @@ export function searchCustomersError(error) {
   };
 }
 
-export const searchCustomers = () => (dispatch) => {
+export const searchCustomers = formFields => (dispatch) => {
   dispatch(searchCustomersInit());
 
   axios
-    .get('https://customer-server.herokuapp.com/search')
+    .post('https://customer-server.herokuapp.com/search', formFields)
     .then((response) => {
       dispatch(searchCustomersSuccess(response.data));
     })

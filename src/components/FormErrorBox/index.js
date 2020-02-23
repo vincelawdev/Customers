@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const ErrorBoxContainer  = styled.div`
+const FormErrorBoxContainer  = styled.div`
     margin: 0 0 30px 0;
     padding: 20px;
     display: block;
@@ -17,26 +17,26 @@ const ErrorBoxContainer  = styled.div`
     }
 `;
 
-const ErrorBox = (props) => {
+const FormErrorBox = (props) => {
   const { errors } = props;
 
   if (errors.length > 0) {
     return (
-      <ErrorBoxContainer>
+      <FormErrorBoxContainer>
         <ul>
           {errors.map(error => {
             return (<li key={error}>{error}</li>);
           })}
         </ul>
-      </ErrorBoxContainer>      
+      </FormErrorBoxContainer>      
     );
   }
 
   return null;
 };
 
-ErrorBox.propTypes = {
+FormErrorBox.propTypes = {
   errors: PropTypes.array.isRequired,
 };
 
-export default ErrorBox;
+export default FormErrorBox;
