@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  SET_FORM_FIELD, SEARCH_CUSTOMERS_INIT, SEARCH_CUSTOMERS_SUCCESS, SEARCH_CUSTOMERS_ERROR,
+  SET_FORM_FIELD, SET_FORM_ERRORS, SEARCH_CUSTOMERS_INIT, SEARCH_CUSTOMERS_SUCCESS, SEARCH_CUSTOMERS_ERROR,
 } from './constants';
 
 export function setFormField(key, value) {
@@ -8,6 +8,13 @@ export function setFormField(key, value) {
     type: SET_FORM_FIELD,
     key,
     value,
+  };
+}
+
+export function setFormErrors(errors) {
+  return {
+    type: SET_FORM_ERRORS,
+    errors,
   };
 }
 
@@ -31,7 +38,7 @@ export function searchCustomersError(error) {
   };
 }
 
-export const getEmployeesData = () => (dispatch) => {
+export const searchCustomers = () => (dispatch) => {
   dispatch(searchCustomersInit());
 
   axios
