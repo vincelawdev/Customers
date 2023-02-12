@@ -42,7 +42,7 @@ export const searchCustomers = formFields => (dispatch) => {
   dispatch(searchCustomersInit());
 
   axios
-    .post('https://customer-server.herokuapp.com/search', formFields)
+    .post('http://localhost:4000/search', formFields)
     .then((response) => {
       dispatch(searchCustomersSuccess(response.data));
     })
